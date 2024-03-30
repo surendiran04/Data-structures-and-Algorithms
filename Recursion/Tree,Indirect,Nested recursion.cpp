@@ -9,7 +9,7 @@ if(n>0){
 }
 }
 
-void funB(int n); //need to initialize funB globally it's called in funA which is before funB
+void funB(int n); //funB needs to defined globally it's called in funA which is before funB
 void funA(int n)
 {
  if(n>0)
