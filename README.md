@@ -25,3 +25,11 @@
 23. Topological Sorting
 24. Ford-Fulkerson Algorithm (Max Flow)
 25. Monte Carlo Algorithm
+
+# Important Algorithms
+1.DFS,BFS
+2.Dynamic programming
+3.Backtracking
+4.Sliding window
+5.Top k elements
+6.PrefixSum
