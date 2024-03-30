@@ -27,10 +27,19 @@ void funB(int n)
  }
 }
 
+int nes(int n){  // a recursive fn which has a  recursive fn as a parameter to a recursive fn
+if (n > 100) {
+        return n - 10;
+}
+return nes(nes(n + 11)); 
+}
+
 int main()
 {
     cout <<"Tree recursion";
     tree(3); //3,2,1,1,2,1,1
    cout <<"Indirect recursion";
    funA(20); //20,19,9,8,4,3,1
+   cout <<"Nested recursion";
+   nes(95); //91 
 }
