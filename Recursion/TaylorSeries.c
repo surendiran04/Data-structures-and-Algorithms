@@ -1,7 +1,7 @@
 #include <iostream>
 using namespace std;
 
-double e(int x,int n){
+double e(int x,int n){    // Time-O(n)
   static double p=1,f=1;
   double r;
   if(n==0){
@@ -11,6 +11,16 @@ double e(int x,int n){
   p=x*p;
   f=n*f;
   return r+p/f;
+
+}
+
+double e1(int x,int n){   //slightly optimised Taylor series Honer's rule                                            )
+  static double s=1;
+  if(n==0){                // Time-O(n
+    return s;
+  }
+  s=1+x*s/n;
+  return e1(x,n-1);
 
 }
 
