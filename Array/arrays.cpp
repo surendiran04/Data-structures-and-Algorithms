@@ -9,3 +9,5 @@ int main()
     }
     return 0;
 }
+
+//printf("%u\n",(A+i)); - print the address of the locations
