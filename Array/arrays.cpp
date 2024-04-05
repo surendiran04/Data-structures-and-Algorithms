@@ -8,6 +8,19 @@ int main()
         printf("%d\n",*(A+i)); // printf("%d\n",i[A]);  printf("%d\n",A[i]);
     }
     return 0;
+
+    // int n;
+    // cin>>n;
+    // cout<<endl;
+    // int A[n];
+    // for(int i=0;i<n;i++){
+    //     cin>>A[i];
+    // }
+    // cout<<endl;
+    // for(int i=0;i<n;i++){
+    //     cout<<A[i]<<",";
+    // }
+    // return 0;
 }
 
 //printf("%u\n",(A+i)); - print the address of the locations
