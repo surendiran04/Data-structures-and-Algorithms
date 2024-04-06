@@ -14,9 +14,11 @@ int main()
     for(int i=0;i<5;i++){
         q[i]=p[i];
     }
-    delete []p;
+   delete []p; 
+    p=q;  //q's address is passed onto p coz,q more has contiguous memory location
+    q=NULL; 
     for(int i=0;i<10;i++){
-        cout<<q[i]<<",";
+        cout<<p[i]<<",";
     }
     return 0;
 }
