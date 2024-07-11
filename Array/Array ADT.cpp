@@ -152,6 +152,29 @@ void leftshift(struct Array *arr){  //arr.A={1,2,3,4,5}
      }
       arr->A[arr->length-1]=x;  //arr.A={2,3,4,5,1}
  }
+ void InsertSort(struct Array *arr, int x)  //inserting or appending elements in a sorted array
+{
+    int i=arr->length-1;
+    if(arr->length==arr->size)
+        return;
+    while (i>=0 && arr->A[i]>x)
+    {
+        arr->A[i+1]=arr->A[i];
+        i--;
+      }
+    arr->A[i+1]=x;
+    arr->length++;
+}
+int isSorted(struct Array arr) //checking an array is sorted or not
+ {
+    int i;
+    for(i=0;i<arr.length-1;i++)
+    {
+        if(arr.A[i]>arr.A[i+1])
+            return 0;
+    }
+    return 1;
+ }
  int main()
  {
      struct Array arr1;
