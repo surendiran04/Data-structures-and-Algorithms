@@ -74,12 +74,12 @@ void Display(struct Array arr)
 {
         int i;
         printf("\nElements are\n");
-        for(i=0;i<arr.length;i++)
+        for(i=0;i<arr.length;i++) //here we access arr.length and arr is not a pointer
             printf("%d ",arr.A[i]);
 }
  void Append(struct Array *arr,int x)
  {
-        if(arr->length<arr->size)
+        if(arr->length<arr->size)  //here we are using -> beacause the arr is pointer here
             arr->A[arr->length++]=x;
 }
 void Insert(struct Array *arr,int index,int x)
