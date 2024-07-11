@@ -133,6 +133,25 @@ void Insert(struct Array *arr,int index,int x)
         swap(&arr->A[i],&arr->A[j]);
     }
  }
+void leftshift(struct Array *arr){  //arr.A={1,2,3,4,5}
+     for(int i=0;i<arr->length-1;i++){
+         arr->A[i]=arr->A[i+1];
+     }
+     arr->A[arr->length-1]=0;   //arr.A={2,3,4,5,0}
+ }
+ void rightshift(struct Array *arr){  //arr.A={1,2,3,4,5}
+     for(int i=arr->length;i>0;i--){
+         arr->A[i]=arr->A[i-1];
+     }
+     arr->A[0]=0; //arr.A={0,1,2,3,4}
+ }
+ void rotate(struct Array *arr){   //arr.A={1,2,3,4,5}
+     int x=arr->A[0];
+     for(int i=0;i<arr->length-1;i++){
+         arr->A[i]=arr->A[i+1];
+     }
+      arr->A[arr->length-1]=x;  //arr.A={2,3,4,5,1}
+ }
  int main()
  {
      struct Array arr1;
