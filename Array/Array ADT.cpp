@@ -61,21 +61,68 @@ int main() {
 }
 
 //same implementation in c language
-struct Array{
-int A[20]; //int *A - allocate dynamic space in main memory as well by getting arr.size and arr.A = (int*)malloc(arr.size*sizeof(int));
-int size;
-int length;
-};
+#include<stdio.h>
+#include<stdlib.h>
+ struct Array
+ {
+    // int A[10]; - static array
+    int *A;  //int *A - allocate dynamic space in main memory as well by getting arr.size and arr.A = (int*)malloc(arr.size*sizeof(int));
+    int size;
+    int length;
+ };
 void Display(struct Array arr)
 {
-int i;
-printf("\nElements are\n");
-for(i=0;i<arr.length; i++)
-printf("%d ", arr.A[i]);
+        int i;
+        printf("\nElements are\n");
+        for(i=0;i<arr.length;i++)
+            printf("%d ",arr.A[i]);
 }
-int main()
+ void Append(struct Array *arr,int x)
+ {
+        if(arr->length<arr->size)
+            arr->A[arr->length++]=x;
+}
+void Insert(struct Array *arr,int index,int x)
 {
-struct Array arr={{2,3,4,5,6},20,5}; //{A,size,length}
-Display(arr); 
-return 0;
+    int i; 
+    if(index>=0 && index <=arr->length)
+    {
+        for(i=arr->length;i>index;i--)
+            arr->A[i]=arr->A[i-1];
+        arr->A[index]=x;
+        arr->length++;
+    }
 }
+ int Delete(struct Array *arr,int index)
+ {
+    int x=0;
+    int i;
+    if(index>=0 && index<arr->length)
+    {
+        x=arr->A[index];
+        for(i=index;i<arr->length-1;i++)
+            arr->A[i]=arr->A[i+1];
+        arr->length--;
+        return x;
+    }
+    return 0;
+ }
+ int main()
+ {
+     struct Array arr1;
+     arr1.size=10;
+     arr1.A=(int *)malloc(arr1.size*(sizeof(int)));
+     arr1.length=5;
+     for (int i = 0; i < arr1.length; ++i)
+    {
+        arr1.A[i] = i + 2; // Assign values 2, 3, 4, 5, 6
+    }
+     // struct Array arr1={{2,3,4,5,6},10,5};  //{A,size,length}
+    Insert(&arr1,0,1);
+    Append(&arr1,7);
+    printf("%d",Delete(&arr1,0));
+    Display(arr1);
+    free(arr1.A);
+    return 0;
+ }
+ 
