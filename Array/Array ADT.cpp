@@ -295,7 +295,7 @@ struct Array *arr3=(struct Array *)malloc(sizeof(struct Array));
     free(arr1.A);
     return 0;
  }
- //same in c++ using template class
+ //same in c++ using template class which is generic we can the same code for char,int, float etc... 
 #include <iostream>
  using namespace std;
  template<class T>
@@ -359,7 +359,7 @@ A[i+1]=A[i];
  }
  int main()
  {
- Array<char> arr(10);
+ Array<char> arr(10); //we can use it for int and string as well
     arr.Insert(0,'a');
     arr.Insert(1,'c');
     arr.Insert(2,'d');
