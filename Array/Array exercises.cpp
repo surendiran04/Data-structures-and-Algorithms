@@ -34,3 +34,25 @@ int main(){
     cout<<"Missing element is: "<<missingInBwElement(A,n);
     return 0;
 }
+
+//Finding multiple missing elements in an array
+#include <iostream>
+using namespace std;
+void missingMultipleElement(int A[],int n){
+    int diff=A[0]-0;
+    for(int i=0;i<n;i++){
+        if(A[i]-i!=diff){
+            while(diff<A[i]-i){
+              cout<<i+diff<<endl;
+              diff++;   
+            }
+        }
+    }
+}
+int main(){
+    int A[] = {6,7,8,9,11,14};
+     int n = sizeof(A)/sizeof(A[0]);
+    cout<<"Missing elements are:\n ";
+    missingMultipleElement(A,n);
+    return 0;
+}
