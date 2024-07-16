@@ -56,3 +56,28 @@ int main(){
     missingMultipleElement(A,n);
     return 0;
 }
+
+//Finding missing elements even if the array is not  sorted
+#include <iostream>
+#include <algorithm>
+using namespace std;
+void missingMultipleElement(int A[],int n){
+    int l=*min_element(A, A + n); //included in algorithm
+    int h=*max_element(A, A + n);
+    int H[h] = {0} ;  // fill(H, H+h, 0);  similiar to vector<int> arr(n, 0); 
+     for(int i=0;i<n;i++){
+         H[A[i]]++;
+     }
+    for(int i=l;i<=h;i++){
+        if(H[i]==0){
+            cout<<i<<endl;
+        }
+    }
+}
+int main(){
+    int A[] = {3,1,5,8};
+     int n = sizeof(A)/sizeof(A[0]);
+    cout<<"Missing elements are:"<<endl;
+    missingMultipleElement(A,n);
+    return 0;
+}
