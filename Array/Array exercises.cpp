@@ -123,3 +123,27 @@ int main(){
     DulpicateElementsTimes(A,n);
     return 0;
 }
+
+//fining duplicates elements via hash table
+#include <iostream>
+#include <algorithm>
+using namespace std;
+void DulpicateElement(int A[],int n){
+    int h=*max_element(A, A + n);
+    int H[h+1] = {0} ;   
+     for(int i=0;i<n;i++){
+         H[A[i]]++;
+     }
+    for(int i=0;i<=h;i++){
+        if(H[i]>1){
+            cout<<i<<" has appeared "<<H[i]<<" times"<<endl;
+        }
+    }
+}
+int main(){
+    int A[] = {3,6,8,8,10,12,15,15,15,20};
+    int n = sizeof(A)/sizeof(A[0]);
+    cout<<"Duplicate elements are:"<<endl;
+    DulpicateElement(A,n);
+    return 0;
+}
