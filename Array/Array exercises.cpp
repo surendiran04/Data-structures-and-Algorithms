@@ -174,3 +174,31 @@ int main(){
     DulpicateElementUnsortedArray(A,n);
     return 0;
 }
+
+//two sum 
+#include <iostream>
+using namespace std;
+void twoSum(int A[],int n,int k){ //this method performs only in sorted array orelse use 2 loop brute force or Hash Table technique
+     int i=0,j=n-1;
+     while(i<j){
+         if(A[i]+A[j]==k){
+             cout<<A[i]<<"+"<<A[j]<<endl;
+             i++;
+             j--;
+         }
+         else if(A[i]+A[j]<k){
+             i++;
+         }
+         else{
+             j--;
+         }
+     }
+}
+int main(){
+    int A[] = {1,4,6,7,8,9,12,15};
+    int k=16;
+    int n = sizeof(A)/sizeof(A[0]);
+    cout<<"The elements that make the sum as: "<<k<<endl;
+    twoSum(A,n,k);
+    return 0;
+}
