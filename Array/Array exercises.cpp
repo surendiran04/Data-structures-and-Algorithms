@@ -81,3 +81,23 @@ int main(){
     missingMultipleElement(A,n);
     return 0;
 }
+
+//finding duplicates in a sorted array
+#include <iostream>
+using namespace std;
+void DulpicateElements(int A[],int n){
+    int lastDuplicate=0;
+    for(int i=0;i<n-1;i++){
+        if(A[i]==A[i+1] && A[i]!=lastDuplicate){
+            cout<<A[i]<<endl;
+            lastDuplicate=A[i];
+        }
+    }
+}
+int main(){
+    int A[] = {3,6,8,8,10,12,15,15,15,20};
+    int n = sizeof(A)/sizeof(A[0]);
+    cout<<"Duplicate elements are:"<<endl;
+    DulpicateElements(A,n);
+    return 0;
+}
