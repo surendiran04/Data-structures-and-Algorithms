@@ -147,3 +147,30 @@ int main(){
     DulpicateElement(A,n);
     return 0;
 }
+
+//Finding dupliactes in a unosrted array
+#include <iostream>
+using namespace std;
+void DulpicateElementUnsortedArray(int A[],int n){
+     for(int i=0;i<n-1;i++){
+         int count=1;
+         if(A[i]!=-1){
+         for(int j=i+1;j<n;j++){
+             if(A[j]==A[i]){
+                 count++;
+                 A[j]=-1;
+             }
+         }
+         if(count>1){
+             cout<<A[i]<<" has appeared "<<count<<" times"<<endl;
+         }
+        }
+     }
+}
+int main(){
+    int A[] = {6,6,3,8,20,12,5,5,15,12};
+    int n = sizeof(A)/sizeof(A[0]);
+    cout<<"Duplicate elements are:"<<endl;
+    DulpicateElementUnsortedArray(A,n);
+    return 0;
+}
