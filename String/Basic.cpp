@@ -25,11 +25,46 @@ int main() {
     return 0;
 }
 
+int number_of_words(char *var)  //fn to count the no of words in a sentence
+{
+	int i = 0;
+	int numberOfWords = 0;
+	while(var[i] != '\0')
+	{
+		if ( ((var[i] != ' ') && (var[i+1] == ' ')) || ((var[i] != ' ') && (var[i+1] == '\0')) )
+		{
+			numberOfWords++;
+		}
+		i++;
+	}
+	return numberOfWords;
+}
+
 #include <iostream>
 #include <string>
 int main() {
     std::string s;
     std::getline(std::cin, s);
     std::cout << "String: " << s <<"length: "<<s.length()<< std::endl;
+    return 0;
+}
+
+#include <iostream>
+#include <string>
+#include <algorithm>
+#include <cctype>
+using namespace std;
+char change_case(char c) {
+    if (isupper(c))
+        return tolower(c);
+    else
+        return toupper(c);
+}
+int main() {
+    string str = "hEllo world";
+    transform(str.begin(), str.end(), str.begin(), change_case);
+    cout << str << endl;
+    transform(str.begin(), str.end(), str.begin(), toupper);  //full string to uppercase and vice-verse for lowercase
+    cout << str << endl;
     return 0;
 }
