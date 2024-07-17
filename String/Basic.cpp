@@ -53,6 +53,7 @@ int main() {
 #include <string>
 #include <algorithm>
 #include <cctype>
+#include<sstream>
 using namespace std;
 char change_case(char c) {
     if (isupper(c))
@@ -66,5 +67,13 @@ int main() {
     cout << str << endl;
     transform(str.begin(), str.end(), str.begin(), toupper);  //full string to uppercase and vice-verse for lowercase
     cout << str << endl;
+    reverse(str.begin(), str.end());//reversing a string
+    cout << str << endl;
+    std::string input = "Hello world";
+    std::istringstream my_stream(input);  //includes in <sstream> headerfile
+    std::string n;
+    while( my_stream >> n){
+        std::cout<<n<<std::endl;  //also wec can count the words
+    }
     return 0;
 }
