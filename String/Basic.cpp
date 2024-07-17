@@ -77,3 +77,24 @@ int main() {
     }
     return 0;
 }
+
+int main(){  //comparing strings
+    char A[]="painter";
+    char B[]="painters";
+    int i=0,j=0;
+    for(i=0,j=0;A[i]!='\0' || B[j]!='\0';i++,j++){
+        if(A[i]!=B[j]){
+            cout<<"String are not equal and ";
+            if(A[i]>B[j]){
+                cout<<"B is smaller";
+                return 0;
+            }
+            else if(A[i]<B[j]){
+                cout<<"A is smaller";
+                return 0;            
+            }
+        }
+    }
+    cout<<"Strings are equal";
+    return 0;
+}
