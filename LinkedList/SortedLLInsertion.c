@@ -59,11 +59,50 @@
         }
     }
 }
+ int count(struct Node *p){
+     int c=0;
+     if(p==NULL)
+       return c;
+    while(p){
+        c++;
+        p=p->next;
+    }
+    return c;
+ }
+ int Delete(struct Node *p,int index)
+ {
+    struct Node *q=NULL;
+    int x=-1,i;
+    if(index < 1 || index > count(p) ){
+          return x;
+    }
+    if(index==1)
+    {
+        q=first;
+        x=first->data;
+        first=first->next;
+        free(q);
+        return x;
+    }
+    else
+    {
+        for(i=0;i<index-1;i++)
+        {
+            q=p;
+            p=p->next;
+        }
+        q->next=p->next;
+        x=p->data;
+        free(p);
+        return x;
+    }
+ }
  int main()
  {
     int A[]={10,20,30,40,50};
     create(A,5);
     SortedInsert(first,15);
     Display(first);
+   printf("Deleted element: %d",Delete(first,2)); 
     return 0;
  }
