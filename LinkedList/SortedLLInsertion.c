@@ -97,12 +97,36 @@
         return x;
     }
  }
+void Reverse1(struct Node *p)
+ {
+    struct Node *q=NULL,*r=NULL;
+    while(p!=NULL)
+    {
+        r=q;
+        q=p;
+        p=p->next;
+        q->next=r;
+    }
+    first=q;
+ }
+ void Reverse2(struct Node *q,struct Node *p)
+ {
+    if(p)
+    {
+        Reverse2(p,p->next);
+        p->next=q;
+    }
+    else
+        first=q;
+ }
  int main()
  {
     int A[]={10,20,30,40,50};
     create(A,5);
     SortedInsert(first,15);
+    Display(first); 
+    printf("Deleted element: %d",Delete(first,2)); 
+    Reverse1(first);
     Display(first);
-   printf("Deleted element: %d",Delete(first,2)); 
     return 0;
  }
