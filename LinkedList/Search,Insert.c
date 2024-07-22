@@ -98,7 +98,7 @@ void Display(struct Node *p)
  struct Node *temp;
  int A[]={3,5,7,10,25,8,32,2};
  create(A,8);
- Insert(first,1,0);
+ Insert(first,1,0); //we can also create the whole list using insert fn
  Display(first);
  struct Node*t=RSearch(first,25);
  if(t)
