@@ -93,6 +93,18 @@ void Display(struct Node *p)
         p=p->next;
     }
 }
+int middleOfLL(struct Node* p){
+    struct Node*q=p;
+    while(p && p->next){
+        p=p->next;
+        if(p)
+          p=p->next;
+        else
+          break;
+        q=q->next;  
+    }
+    return q->data;
+}
  int main()
  {
  struct Node *temp;
@@ -100,6 +112,7 @@ void Display(struct Node *p)
  create(A,8);
  Insert(first,1,0); //we can also create the whole list using insert fn
  Display(first);
+ printf("\n%d\n",middleOfLL(first)); 
  struct Node*t=RSearch(first,25);
  if(t)
     printf("key is found");
