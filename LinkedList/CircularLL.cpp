@@ -34,8 +34,8 @@ CircularLinkedList::CircularLinkedList(int *A, int n) {
     for (int i=1; i<n; i++){
         t = new Node;
         t->data = A[i];
-        t->next = tail->next;
-        tail->next = t;
+        t->next = tail->next; //head
+        tail->next = t; //changing frpm pointing to head to new node
         tail = t;
     }
 }
