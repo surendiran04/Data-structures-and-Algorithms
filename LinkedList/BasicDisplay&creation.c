@@ -39,11 +39,32 @@
         RDisplay(p->next);  //tail recursion
     }
  }
+int isLoop(struct Node *f)
+ {
+    struct Node *p,*q;
+    p=q=f;
+    
+   do
+    {
+        p=p->next;
+        q=q->next;
+        q=q?q->next:q;
+    }while(p && q && p!=q);
+    if(p==q)
+       return 1;
+    else
+       return 0;
+ }
  int main()
  {
- struct Node *temp;
- int A[]={3,5,7,10,25,8,32,2};
- create(A,8);
- RDisplay(first);
- return 0;
+     struct Node *temp;
+     int A[]={10,20,40,50,60};
+    create(A,5);
+    RDisplay(first);
+    struct Node *t1,*t2;
+    t1=first->next->next;
+    t2=first->next->next->next->next; //making a loop
+    t2->next=t1;
+    printf("%d\n",isLoop(first)); 
+     return 0;
  }
