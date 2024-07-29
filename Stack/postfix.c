@@ -9,16 +9,16 @@ int top=-1;
 int precedence(char symbol)
 {
     switch(symbol){
-       case '^':
-    return 3;
-case '/':
-case '*':
-    return 2;
-case '+':
-case '-':
-    return 1;
- default:
-     return 0;
+    case '^':
+        return 3;
+    case '/':
+    case '*':
+         return 2;
+    case '+':
+    case '-':
+         return 1;
+    default:
+       return 0;
      }
 }
 int space(char c)
@@ -47,9 +47,9 @@ int isEmpty()
         return 0;
 }
 char pop(){
-char c=stack[top];
-top-=1;
-return c;
+   char c=stack[top];
+   top-=1;
+   return c;
 }
 void intopost()
 {
@@ -73,7 +73,9 @@ void intopost()
         case '+':
         case '-':
             while(!isEmpty() && precedence(stack[top])>=precedence(symbol)){
-                postfix[j++]=pop();}
+                postfix[j++]=pop();
+                
+            }
                 push(symbol);
                 break;
         default:
@@ -96,21 +98,26 @@ int post_eval()
     else{
         a=pop();
         b=pop();
-        switch(postfix[i]){
+    switch(postfix[i]){
     case '+':
-        push(b+a);break;
+        push(b+a);
+        break;
     case '-':
-        push(b-a);break;
+        push(b-a);
+        break;
     case '*':
-        push(b*a);break;
+        push(b*a);
+        break;
     case '/':
-        push(b/a);break;
+        push(b/a);
+        break;
     case '^':
-        push(pow(b,a));break;
-        }
+        push(pow(b,a));
+        break;
+     }
     }
    }
-   return pop();
+   return pop(); //final result
 }
 int main()
 {
@@ -119,7 +126,6 @@ int main()
     gets(infix);
     intopost();
     result=post_eval();
-    printf("%s",postfix);
+    printf("Equivalent postfix expression:%s",postfix);
     printf("\n%d",result);
 }
-
