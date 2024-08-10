@@ -20,7 +20,6 @@
     else
     {
         q->rear++;
-        q->
         Q[q->rear]=x;
     }
  }
