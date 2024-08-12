@@ -126,3 +126,23 @@ int main()
     
     return 0;
 }
+
+// output:
+// Enter root value: 1
+// enter left child of 1: 2
+// enter right child of 1: 3
+// enter left child of 2: 4
+// enter right child of 2: 5
+// enter left child of 3: 6
+// enter right child of 3: 7
+// enter left child of 4: -1
+// enter right child of 4: -1
+// enter left child of 5: -1
+// enter right child of 5: -
+// enter left child of 6: -1
+// enter right child of 6: -
+// enter left child of 7: -1
+// enter right child of 7: -1
+
+// Pre Order: 1 2 4 5 3 6 7 
+// Post Order: 4 5 2 6 7 3 1 
