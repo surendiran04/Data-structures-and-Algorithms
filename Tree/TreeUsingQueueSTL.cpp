@@ -128,7 +128,7 @@ int Tree::Height(Node *p) {
     int l = 0;
     int r = 0;
     if (p == nullptr){
-        return 0;
+        return 0;  //we can also use -1 to start the root node as 0 height else we can use 0
     }
  
     l = Height(p->lchild);
