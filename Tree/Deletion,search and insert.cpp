@@ -121,6 +121,7 @@ Node* BST::rSearch(Node *p, int key) {
     }
 }
  
+
 Node* BST::Delete(Node *p, int key) {
     Node* q;
  
@@ -129,7 +130,7 @@ Node* BST::Delete(Node *p, int key) {
     }
  
     if (p->lchild == nullptr && p->rchild == nullptr){
-        if (p == root){
+        if (p == root && key==root->data){ //if there is only one node and that is root then it has to check for the key and then delete the root
             root = nullptr;
         }
         delete p;
