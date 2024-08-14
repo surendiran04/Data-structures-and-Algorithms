@@ -122,6 +122,18 @@ int Tree::Sum(Node *p) {
     }
     return 0;
 }
+// int sum(TreeNode* p){ sum of leaf node
+//         int l,r;
+//         if(p){
+//             if(p->left==nullptr && p->right==nullptr){
+//                 return p->val;
+//             }
+//             else{
+//                 return sum(p->left)+sum(p->right);
+//             } 
+//         }
+//         return 0;
+//   }
  
 int Tree::deg2NodeCount(Node *p) {
     int x;
