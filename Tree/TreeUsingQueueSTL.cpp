@@ -27,6 +27,8 @@ public:
     void Levelorder() { Levelorder(root); }
     int Height(Node* p);
     int Height() { return Height(root); }
+    void invert(Node* p);
+    void invert(){ invert(root);}
 };
  
 Tree::Tree() {
@@ -140,6 +142,17 @@ int Tree::Height(Node *p) {
         return r + 1;
     }
 }
+void Tree::invert(Node* root) {
+    if (root == nullptr) {
+        return;
+    }
+    Node* temp = root->lchild;
+    root->lchild = root->rchild;
+    root->rchild = temp;
+    invert(root->lchild);
+    invert(root->rchild);
+}
+ 
  
  
 int main() {
@@ -160,6 +173,10 @@ int main() {
     cout << "Postorder: " << flush;
     bt.Postorder();
     cout << endl;
+
+    cout<<"After Invert: "<<flush;
+    bt.invert();
+    cout<<endl;
  
     cout << "Levelorder: " << flush;
     bt.Levelorder();
@@ -177,7 +194,7 @@ int main() {
 // Enter right child data of 2: 5
 // Enter left child data of 3: 6
 // Enter right child data of 3: 7
-// Enter left child data of 4: -1
+// Enter left child data of 4: 7
 // Enter right child data of 4: -1
 // Enter left child data of 5: -1
 // Enter right child data of 5: -1
@@ -185,9 +202,12 @@ int main() {
 // Enter right child data of 6: -1
 // Enter left child data of 7: -1
 // Enter right child data of 7: -1
+// Enter left child data of 7: -1
+// Enter right child data of 7: -1
 
-// Preorder: 1, 2, 4, 5, 3, 6, 7, 
-// Inorder: 4, 2, 5, 1, 6, 3, 7, 
-// Postorder: 4, 5, 2, 6, 7, 3, 1, 
-// Levelorder: 1, 2, 3, 4, 5, 6, 7, 
-// Height: 3
+// Preorder: 1, 2, 4, 7, 5, 3, 6, 7, 
+// Inorder: 7, 4, 2, 5, 1, 6, 3, 7, 
+// Postorder: 7, 4, 5, 2, 6, 7, 3, 1, 
+// Invert: 
+// Levelorder: 1, 3, 2, 7, 6, 5, 4, 7, 
+// Height: 4
