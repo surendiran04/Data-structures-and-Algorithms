@@ -1,4 +1,4 @@
-//quicksort - sorts by picking 1 element as pivot(whether it may any lement in the array) and partitions the given array 
+//quicksort - sorts by picking 1 element as pivot(whether it may be any element in the array) and partitions the given array 
 //around the picked pivot element.Then sorts the dived arrays by the same procedure.
 
 // best and avg time complexity - O(nlogn) ,worst case - O(n^2) if(pivot is chosen poorly)
